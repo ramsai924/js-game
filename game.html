@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js">
+    <title>Document</title>
+    <style>
+        #images{
+            display: flex;
+        }
+        #images > img{
+            padding: 20px;
+        }
+        #texts{
+            display: flex;
+            padding: 20px;
+        }
+        #texts > input{
+           margin: 10px;
+        }
+        .main{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .btn{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #texts{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #demo{
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            padding: 20px;
+        }
+       #img1  , #img2 {
+        border: 5px solid black;
+        margin: 10px;
+       }
+    </style>
+</head>
+<body>
+    
+    <div class="main">
+        <div class="inner">
+        <div id="images">
+            <img src="" id ="img1" alt="" width="300px" height="150px" >
+            <img src="" id="img2" alt="" width="300px" height="150px" >
+        </div>
+    
+        <div id="texts"> 
+            <input type="text" id="text1" placeholder="player-1">
+            <input type="text" id="text2" placeholder="player-2">
+        </div>
+    
+        <div class="btn">
+            <button onclick="play()">play</button>
+        </div>
+        <p style="color:green" id="demo"></p>
+        </div>
+    </div>
+
+
+    <script>
+        function play(){
+            var randomnum = Math.floor(Math.random() * 3);
+           //console.log("first : " + randomnum)
+            var randomnum1 = Math.floor(Math.random() * 3);
+           // console.log("second : " + randomnum1);
+           
+        
+        var img1;
+
+        switch (randomnum) {
+            case 0 :
+            var paper = document.getElementById("img1");
+            img1 = paper.src = "paper.jpg";
+            break;
+
+            case 1 :
+            var scissor = document.getElementById("img1");
+            img1 = scissor.src = "scissor.jpg";
+            break;
+
+            case 2 :
+            var stone = document.getElementById("img1");
+            img1 = stone.src = "stone.jpg";
+            break;
+
+           
+
+        } 
+       
+        var img2;
+
+        switch (randomnum1) {
+            case 0 :
+            var paper1 = document.getElementById("img2");
+             img2 = paper1.src = "paper.jpg";
+            break;
+
+            case 1 :
+            var scissor1 = document.getElementById("img2");
+             img2 = scissor1.src = "scissor.jpg";
+            break;
+
+            case 2 :
+            var stone1 = document.getElementById("img2");
+             img2 = stone1.src = "stone.jpg";
+            break;
+           
+        
+
+        } 
+
+        if(randomnum === randomnum1){
+            document.getElementById("demo").innerHTML = "<h3 style='color:red'>PLAY AGAIN</h3>";
+        }else{
+            document.getElementById("demo").innerHTML = " ";
+        }
+        
+        //----------------------
+        if(img1 == "paper.jpg" && img2 == "stone.jpg"){
+            var person_1 = document.getElementById("text1").value;
+            document.getElementById("demo").innerHTML = person_1.toUpperCase() + " " +  "WON..!";
+            //alert(person_1);
+        }
+        if(img1 == "stone.jpg" && img2 == "paper.jpg"){
+            var person_2 = document.getElementById("text2").value;
+            document.getElementById("demo").innerHTML = person_2.toUpperCase() +  " " + "WON..!";
+        }
+        //----------------------
+        if(img1 == "scissor.jpg" && img2 == "paper.jpg"){
+            var person_1 = document.getElementById("text1").value;
+            document.getElementById("demo").innerHTML = person_1.toUpperCase() + " " + "WON..!";
+        }
+        if(img1 == "paper.jpg" && img2 == "scissor.jpg"){
+            var person_2 = document.getElementById("text2").value;
+            document.getElementById("demo").innerHTML = person_2.toUpperCase() + " " +  "WON..!";
+        }
+        //------------------------
+        if(img1 == "stone.jpg" && img2 == "scissor.jpg"){
+            var person_1 = document.getElementById("text1").value;
+            document.getElementById("demo").innerHTML = person_1.toUpperCase() +  " " + "WON..!";
+        }
+        if(img1 == "scissor.jpg" && img2 == "stone.jpg"){
+            var person_2 = document.getElementById("text2").value;
+            document.getElementById("demo").innerHTML = person_2.toUpperCase() +  " " + "WON..!";
+        }
+
+
+           // console.log(paper_img2)
+       
+
+            
+        }
+
+    </script>
+</body>
+</html>
