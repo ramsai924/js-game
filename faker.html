@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://rawgit.com/Marak/faker.js/master/examples/browser/js/faker.js" type="text/javascript"></script>
+    <style>
+        .main > div{
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+      <div class="main">
+        <div>
+            <label>First Name : </label>
+        <input type="text" id="firstname">
+        </div>
+
+        <div>
+            <label>last Name : </label>
+        
+        <input type="text" id="lastname">
+        </div>
+
+        <div>
+            <label>Address : </label>
+        <input type="text" id="Address">
+        </div>
+
+        <div>
+            <label>Phone number : </label>
+        <input type="text" id="pnumber">
+        </div>
+
+        <div>
+            <img src="" alt="" width="200px" height="200px" id="image">
+        </div>
+    <button onclick="random()">click</button>
+      </div>
+    <script>
+        function random(){
+            document.getElementById("firstname").value = faker.name.firstName();
+            document.getElementById("lastname").value = faker.name.lastName();
+            document.getElementById("Address").value = faker.address.streetAddress();
+            document.getElementById("pnumber").value = faker.phone.phoneNumberFormat();
+            document.getElementById("image").src = faker.image.avatar();
+
+        }
+    </script>
+</body>
+</html>
